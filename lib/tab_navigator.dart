@@ -20,7 +20,11 @@ class _TabNavigatorState extends State<TabNavigator> {
                 colors: [Color(0xFFEDEEF0), Color(0xFFE6E7E9)],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter)),
-        child: ContentPage(),
+        child: ContentPage(onPageChanged: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: [

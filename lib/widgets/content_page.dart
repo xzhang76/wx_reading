@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:wx_reading/widgets/page_view_content.dart';
 
 class ContentPage extends StatefulWidget {
+  final ValueChanged<int> onPageChanged;
+  //构造方法
+  const ContentPage({Key key, this.onPageChanged}) : super(key: key);
   @override
   _ContentPageState createState() => _ContentPageState();
 }
@@ -12,6 +15,7 @@ class _ContentPageState extends State<ContentPage> {
     return Column(
       children: <Widget>[
         //appBar
+
         Expanded(
           child: PageView(
             controller: PageController(
@@ -24,6 +28,7 @@ class _ContentPageState extends State<ContentPage> {
               PageViewContent(index: 2),
               PageViewContent(index: 3),
             ],
+            onPageChanged: widget.onPageChanged,
           ),
         )
       ],
