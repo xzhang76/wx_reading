@@ -3,13 +3,26 @@ import 'package:wx_reading/widgets/page_view_content.dart';
 
 class ContentPage extends StatefulWidget {
   final ValueChanged<int> onPageChanged;
+  final ContentPageController contentPageController;
   //构造方法
-  const ContentPage({Key key, this.onPageChanged}) : super(key: key);
+  const ContentPage({Key key, this.onPageChanged,
+    this.contentPageController}) : super(key: key);
+
   @override
   _ContentPageState createState() => _ContentPageState();
 }
 
 class _ContentPageState extends State<ContentPage> {
+  final PageController _pageController = PageController(viewportFraction: 0.8);
+
+  @override
+  void initState() {
+    if(widget.contentPageController != null) {
+      widget.contentPageController._pageController = _pageController;
+    }
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,9 +31,7 @@ class _ContentPageState extends State<ContentPage> {
 
         Expanded(
           child: PageView(
-            controller: PageController(
-              viewportFraction: 0.8
-            ),
+            controller: _pageController,
             scrollDirection: Axis.horizontal,
             children: <Widget>[
               PageViewContent(index: 0),
@@ -33,5 +44,17 @@ class _ContentPageState extends State<ContentPage> {
         )
       ],
     );
+  }
+}
+
+class ContentPageController {
+  PageController _pageController;
+
+  void jumpToPage(int page) {
+    _pageController?.jumpToPage(page);
+  }
+
+  void animateToPage(int page) async {
+    await _pageController?.animateToPage(page, duration: Duration(microseconds: 500), curve: Curves.easeInOut);
   }
 }

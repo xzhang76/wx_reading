@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wx_reading/widgets/content_page.dart';
+import 'package:wx_reading/widgets/page_view_content.dart';
 
 class TabNavigator extends StatefulWidget {
   @override
@@ -11,6 +12,8 @@ class _TabNavigatorState extends State<TabNavigator> {
   final _activeColor = Colors.blue;
   int _currentIndex = 0;
 
+  final ContentPageController _contentPageController = new ContentPageController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,11 +23,14 @@ class _TabNavigatorState extends State<TabNavigator> {
                 colors: [Color(0xFFEDEEF0), Color(0xFFE6E7E9)],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter)),
-        child: ContentPage(onPageChanged: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },),
+        child: ContentPage(
+          onPageChanged: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          contentPageController: _contentPageController,
+        )
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
@@ -35,9 +41,8 @@ class _TabNavigatorState extends State<TabNavigator> {
         ],
         currentIndex: _currentIndex,
         onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
+          print("onTap, index = $index");
+          _contentPageController.animateToPage(index);
         },
         type: BottomNavigationBarType.fixed,
       ),
