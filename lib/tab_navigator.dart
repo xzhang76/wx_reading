@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wx_reading/widgets/content_page.dart';
-import 'package:wx_reading/widgets/page_view_content.dart';
 
 class TabNavigator extends StatefulWidget {
   @override
