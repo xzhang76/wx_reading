@@ -11,7 +11,7 @@ class _CardRecommendState extends BaseCardState {
   @override
   void initState() {
     mainTitle = '本周推荐';
-    subTitleText = '送你离开，千里之外';
+    subTitle = '送你离开，千里之外';
     subTitleColor = Color(0xFFB99444);
     super.initState();
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wx_reading/cards/card_recommend.dart';
+import 'package:wx_reading/cards/card_share.dart';
 import 'package:wx_reading/widgets/my_appbar.dart';
 
 class ContentPage extends StatefulWidget {
@@ -36,7 +37,7 @@ class _ContentPageState extends State<ContentPage> {
             scrollDirection: Axis.horizontal,
             children: <Widget>[
               _buildPageViewContent(CardRecommend()),
-              _buildPageViewContent(CardRecommend()),
+              _buildPageViewContent(CardShare()),
               _buildPageViewContent(CardRecommend()),
               _buildPageViewContent(CardRecommend()),
             ],

@@ -8,7 +8,8 @@ class BaseCard extends StatefulWidget {
 class BaseCardState extends State<BaseCard> {
   String mainTitle = '';
   String subMainTitle;
-  String subTitleText = '';
+  String subTitle = '';
+  Color bottomTitleColor = Colors.blue;
   Color subTitleColor = Colors.grey;
   @override
   Widget build(BuildContext context) {
@@ -38,25 +39,26 @@ class BaseCardState extends State<BaseCard> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
               Text(mainTitle, style: TextStyle(fontSize: 22, color: Colors.black)),
-              Text(subMainTitle != null ? ' / $subMainTitle' : '', style: TextStyle(fontSize: 15, color: Colors.blueGrey),)
+              Padding(
+                padding: EdgeInsets.only(bottom: 2),
+                child: Text(subMainTitle != null ? ' / $subMainTitle' : '', style: TextStyle(fontSize: 11, color: Colors.blueGrey)),
+              )
             ],
           ),
-          _subTitle(subTitleText),
+          Padding(
+            padding: EdgeInsets.only(top: 5),
+            child: Text(subTitle, style: TextStyle(fontSize: 11, color: subTitleColor)),
+          ),
         ],
       ),
     );
   }
 
-
-
   bottomContent() {
     return Container();
   }
 
-  _subTitle(String title) {
-    return Padding(
-      padding: EdgeInsets.only(top: 5),
-      child: Text(title, style: TextStyle(fontSize: 11, color: subTitleColor)),
-    );
+  bottomContentTitle(String bottomTitle) {
+    return Text(bottomTitle, style: TextStyle(fontSize: 12, color: bottomTitleColor));
   }
 }
