@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wx_reading/cards/card_recommend.dart';
 import 'package:wx_reading/widgets/my_appbar.dart';
-import 'package:wx_reading/widgets/page_view_content.dart';
 
 class ContentPage extends StatefulWidget {
   final ValueChanged<int> onPageChanged;
@@ -35,15 +35,22 @@ class _ContentPageState extends State<ContentPage> {
             controller: _pageController,
             scrollDirection: Axis.horizontal,
             children: <Widget>[
-              PageViewContent(index: 0),
-              PageViewContent(index: 1),
-              PageViewContent(index: 2),
-              PageViewContent(index: 3),
+              _buildPageViewContent(CardRecommend()),
+              _buildPageViewContent(CardRecommend()),
+              _buildPageViewContent(CardRecommend()),
+              _buildPageViewContent(CardRecommend()),
             ],
             onPageChanged: widget.onPageChanged,
           ),
         )
       ],
+    );
+  }
+
+  _buildPageViewContent(Widget child) {
+    return Padding(
+      padding: EdgeInsets.all(12),
+      child: child
     );
   }
 }
