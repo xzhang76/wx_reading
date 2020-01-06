@@ -16,7 +16,14 @@ class _TabNavigatorState extends State<TabNavigator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+          child: Center(),
+          preferredSize: Size.fromHeight(-MediaQuery
+              .of(context)
+              .padding
+              .top)),
       body: Container(
+        padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
         decoration: BoxDecoration(
             gradient: LinearGradient(
                 colors: [Color(0xFFEDEEF0), Color(0xFFE6E7E9)],

@@ -1,7 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:wx_reading/tab_navigator.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+  _statusBar();
+}
+
+_statusBar() {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    systemNavigationBarColor: Color(0xFF000000),
+    systemNavigationBarDividerColor: null,
+    statusBarColor: Colors.transparent,
+    systemNavigationBarIconBrightness: Brightness.light,
+    statusBarIconBrightness: Brightness.dark,
+    statusBarBrightness: Brightness.light,
+  ));
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:wx_reading/widgets/my_appbar.dart';
 import 'package:wx_reading/widgets/page_view_content.dart';
 
@@ -22,7 +21,6 @@ class _ContentPageState extends State<ContentPage> {
     if(widget.contentPageController != null) {
       widget.contentPageController._pageController = _pageController;
     }
-    _statusBar();
     super.initState();
   }
 
@@ -47,17 +45,6 @@ class _ContentPageState extends State<ContentPage> {
         )
       ],
     );
-  }
-
-  _statusBar() {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      systemNavigationBarColor: Color(0xFF000000),
-      systemNavigationBarDividerColor: null,
-      statusBarColor: Colors.transparent,
-      systemNavigationBarIconBrightness: Brightness.light,
-      statusBarIconBrightness: Brightness.dark,
-      statusBarBrightness: Brightness.light,
-    ));
   }
 }
 
