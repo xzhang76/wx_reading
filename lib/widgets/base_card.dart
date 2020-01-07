@@ -59,6 +59,6 @@ class BaseCardState extends State<BaseCard> {
   }
 
   bottomContentTitle(String bottomTitle) {
-    return Text(bottomTitle, style: TextStyle(fontSize: 12, color: bottomTitleColor));
+    return Text(bottomTitle, textAlign: TextAlign.center, style: TextStyle(fontSize: 12, color: bottomTitleColor));
   }
 }

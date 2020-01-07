@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wx_reading/cards/card_changan.dart';
 import 'package:wx_reading/cards/card_free.dart';
 import 'package:wx_reading/cards/card_recommend.dart';
 import 'package:wx_reading/cards/card_share.dart';
@@ -40,7 +41,7 @@ class _ContentPageState extends State<ContentPage> {
               _buildPageViewContent(CardRecommend()),
               _buildPageViewContent(CardShare()),
               _buildPageViewContent(CardFree()),
-              _buildPageViewContent(CardRecommend()),
+              _buildPageViewContent(CardChangan()),
             ],
             onPageChanged: widget.onPageChanged,
           ),
