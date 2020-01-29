@@ -26,6 +26,7 @@ class _CardRecommendState extends BaseCardState {
     //返回自己的实现
     return Expanded(
       child: Container(
+        constraints: BoxConstraints.expand(),
         child: Image.network('http://www.devio.org/io/flutter_beauty/card_1.jpg',
         fit: BoxFit.cover,)
       ),

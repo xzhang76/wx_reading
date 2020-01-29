@@ -28,7 +28,7 @@ class _CardShareState extends BaseCardState {
     //返回自己的实现
     return Expanded(
       child: Container(
-          margin: EdgeInsets.only(top: 20),
+          constraints: BoxConstraints.expand(),
           color: Color(0xFFF6F7F9),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
